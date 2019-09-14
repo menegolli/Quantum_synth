@@ -122,12 +122,20 @@ def AmplitudeAmplification(quantumCircuit, target, initialLength, numIterations)
             quantumCircuit.x(qubit)
             quantumCircuit.h(qubit)
 
+def HalfFilledSuperposition(quantumCircuit, number):
+    desiredVector=np.zeros(16)
+    for k in range(number//2):
+        desiredVector[k] = 1./np.sqrt(number/2.)
+    quantumCircuit.initialize(desiredVector, range(4))
+
+
 
 def GroverSequence(target, initialLength,backendType,RealDeviceName,noisePresent):
     iterations = []
     for k in range(4):
         temporaryQuantumCircuit = QuantumCircuit(initialLength, initialLength)
         AmplitudeAmplification(temporaryQuantumCircuit, target, initialLength, k)
+        print(target)
         #             listForMusic = ChooseBackEnd(music, backendType=mystr[0], qubitsToBeMeasured=range(4),
         #             numberShots=int(mystr[3]), noisePresent=True, RealDeviceName=mystr[1])
 
@@ -136,3 +144,4 @@ def GroverSequence(target, initialLength,backendType,RealDeviceName,noisePresent
         del (temporaryQuantumCircuit)
 
     return iterations
+

@@ -104,6 +104,17 @@ def SeperPosition(backendType, RealDeviceName, noisePresent,numberShots,number=1
     sender(results=listForMusic, name="prob")
     del(circuit)
 
+def sqr(backendType, RealDeviceName, noisePresent,numberShots,number=12,notes=range(4)):
+    circuit=QuantumCircuit(4,4)
+    HalfFilledSuperposition(circuit, number)#we have to check togather
+    listForMusic = ChooseBackEnd(circuit, backendType=backendType, qubitsToBeMeasured=range(4), numberShots=numberShots, noisePresent=noisePresent, RealDeviceName=RealDeviceName)
+    print(listForMusic)
+    if number==12:
+        listForMusic = RedistributeCell(listForMusic)
+    print(listForMusic)
+    sender(results=listForMusic, name="prob")
+    del(circuit)
+
 if __name__ == '__main__':
     # app.run()
   # test=hello_world()
@@ -146,6 +157,8 @@ if __name__ == '__main__':
                  Bell(backendType=mystr[0], RealDeviceName=mystr[1], noisePresent=noise,numberShots=int(mystr[3]),number=int(mystr[5]))
             elif mystr[2]=="ChooseEqualSuperposition":
                 SeperPosition(backendType=mystr[0], RealDeviceName=mystr[1], noisePresent=noise,numberShots=int(mystr[3]),number=int(mystr[5]))
+            elif mystr[2] == "Sqr":
+                sqr(backendType=mystr[0], RealDeviceName=mystr[1], noisePresent=noise, numberShots=int(mystr[3]), number=int(mystr[5]))
             elif mystr[2]=="Grover":
                 grover4(target=targ, backendType=mystr[0], RealDeviceName=mystr[1], noisePresent=noise,number=int(mystr[5]))
             else:
