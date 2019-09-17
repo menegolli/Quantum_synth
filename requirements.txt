@@ -1,0 +1,2 @@
+python-osc==1.7.2
+qiskit==0.12.0
