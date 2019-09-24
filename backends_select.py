@@ -47,7 +47,7 @@ def ChooseBackEnd(quantumCircuit, backendType="statevector_simulator", qubitsToB
         else:
             print(qubitsToBeMeasured)
             quantumCircuit.measure(qubitsToBeMeasured,qubitsToBeMeasured)
-            provider=IBMQ.save_account('6df4f4722c5fd033b38a7087ff4474a2202d485c0f3ea24626a4d8e777eb656693c1bda4a9900401165b7ef6977a60f21a829236ba2c22cb0035e084ddf5326e')
+            provider=IBMQ.save_account('XXX-YOUR-TOKEN')
             # simulate noise of a real device
             IBMQ.load_account()
             IBMQ.providers()
@@ -82,7 +82,7 @@ def ChooseBackEnd(quantumCircuit, backendType="statevector_simulator", qubitsToB
     elif backendType == "real_device":
         # real device
         quantumCircuit.measure(qubitsToBeMeasured,qubitsToBeMeasured)
-        provider=IBMQ.save_account('6df4f4722c5fd033b38a7087ff4474a2202d485c0f3ea24626a4d8e777eb656693c1bda4a9900401165b7ef6977a60f21a829236ba2c22cb0035e084ddf5326e')
+        provider=IBMQ.save_account('XXX-YOUR-TOKEN')
         # simulate noise of a real device
         IBMQ.load_account()
         IBMQ.providers()
