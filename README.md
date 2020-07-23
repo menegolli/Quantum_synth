@@ -1,10 +1,12 @@
 # Quantum_synth
-Development of an interface between Qiskit and Max8 to generate superposition of notes encoded on the basis states of a quantum computer
+Development of an interface between Qiskit and Max8 to generate superposition of notes encoded on the basis states of a quantum computer.
 
 The system is composed of 3 layers:
 - Max musical graphical interface
 - Middleware exchanging data between Max and the circuit
 - Circuit module generation
+
+A video description of the project is available [here](https://www.youtube.com/watch?v=q2E9PL2YTkk).
 
 Please [cite](https://github.com/menegolli/Quantum_synth/blob/master/Quantum_Synth.bib) us.
 
